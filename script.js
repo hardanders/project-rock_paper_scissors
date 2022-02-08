@@ -47,7 +47,6 @@ function roundPrompt() {
     if (!(numberOfRounds == Number(numberOfRounds))) {
         alert("ENTER A NUMBER!");
         roundPrompt(numberOfRounds);
-        return numberOfRounds;
     } else {
         return numberOfRounds;
     }
