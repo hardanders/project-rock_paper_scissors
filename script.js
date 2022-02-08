@@ -27,21 +27,27 @@ function convert(gestureName) {
         return 1;
     } else if (gestureName == "scissors") {
         return 2;
-    } else {
-        console.log("That's not a number")
     }
 }
 
 function playerSelect() {
     const ask = prompt("Rock, Paper, or Scissors?").toLowerCase();
-    console.log(`You have selected ${ask}.`)
+    if (!(ask == 'rock' || ask.toLowerCase() == 'paper' || ask.toLowerCase() == 'scissors')) {
+        alert(`Bro... ${ask} isn't any of those...`);
+        playerSelect();
+        return ask;
+    } else {
+    console.log(`You have selected ${ask}.`);
     return ask;
+    }
 }
 
 function roundPrompt(numberOfRounds) {
     numberOfRounds = prompt("How many rounds would you like to play?");
-    if (numberOfRounds == NaN) {
+    if (!(numberOfRounds == Number(numberOfRounds))) {
         alert("ENTER A NUMBER!");
+        roundPrompt(numberOfRounds);
+        return numberOfRounds;
     } else {
         return numberOfRounds;
     }
@@ -61,6 +67,7 @@ function playRound(playerSelection, computerSelection = computerPlay) {
         return lose;
     }
 }
+
 
 function game() {
     let rounds = roundPrompt();
