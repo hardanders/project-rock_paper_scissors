@@ -33,7 +33,7 @@ function convert(gestureName) {
 function playerSelect() {
     const ask = prompt("Rock, Paper, or Scissors?").toLowerCase();
     if (!(ask == 'rock' || ask.toLowerCase() == 'paper' || ask.toLowerCase() == 'scissors')) {
-        alert(`Bro... ${ask} isn't any of those...`);
+        alert(`Did you misspell something... or are you just a dumbass?`);
         playerSelect();
         return ask;
     } else {
@@ -67,7 +67,6 @@ function playRound(playerSelection, computerSelection = computerPlay) {
         return lose;
     }
 }
-
 
 function game() {
     let rounds = roundPrompt();
