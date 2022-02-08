@@ -42,7 +42,7 @@ function playerSelect() {
     }
 }
 
-function roundPrompt(numberOfRounds) {
+function roundPrompt() {
     numberOfRounds = prompt("How many rounds would you like to play?");
     if (!(numberOfRounds == Number(numberOfRounds))) {
         alert("ENTER A NUMBER!");
