@@ -1,17 +1,12 @@
 let playerScore = '0';
 let computerScore = '0';
 
-const numberOfRounds = prompt("How many rounds would you like to play?")
 const rock = 'rock';
 const paper = 'paper';
 const scissors = 'scissors'; 
-const ask = prompt("Rock, Paper, or Scissors?");
-const playerSelection = ask.toLowerCase();
-const computerSelection = computerPlay();
 const draw = 'tie';
 const win = 'win';
 const lose = 'lose';
-const win_or_lose = playRound(playerSelection, computerSelection);
 
 function computerPlay() {
     let numberSelection = Math.floor(Math.random() * 3);
@@ -24,7 +19,7 @@ function computerPlay() {
             return scissors;
     }
 }
-
+ 
 function convert(gestureName) {
     if (gestureName == "rock") {
         return 0;
@@ -33,11 +28,26 @@ function convert(gestureName) {
     } else if (gestureName == "scissors") {
         return 2;
     } else {
-        return null;
+        console.log("That's not a number")
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+function playerSelect() {
+    const ask = prompt("Rock, Paper, or Scissors?").toLowerCase();
+    console.log(`You have selected ${ask}.`)
+    return ask;
+}
+
+function roundPrompt(numberOfRounds) {
+    numberOfRounds = prompt("How many rounds would you like to play?");
+    if (numberOfRounds == NaN) {
+        alert("ENTER A NUMBER!");
+    } else {
+        return numberOfRounds;
+    }
+}
+
+function playRound(playerSelection, computerSelection = computerPlay) {
     let playerNum = convert(playerSelection);
     let computerNum = convert(computerSelection);
     if (playerNum === computerNum) {
@@ -53,7 +63,12 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    calculateScore(playRound(playerSelection, computerSelection));
+    let rounds = roundPrompt();
+    for (let i = '0'; i < rounds; i++) {
+        let playerChoice = playerSelect();
+        let result = playRound(playerChoice, computerPlay());
+        calculateScore(result);
+    }
     determineWinner(playerScore, computerScore);
 }
 
@@ -74,10 +89,13 @@ function calculateScore(win_or_lose) {
 
 function determineWinner(playerScore, computerScore) {
     if (playerScore > computerScore) {
-        console.log("Congratulations! You beat the computer at rock, paper, scissors!")
+        console.log("Congratulations! You beat the computer at rock, paper, scissors!");
+        console.log(`Final score: Humans - ${playerScore}, Robots - ${computerScore}`);
     } else if (playerScore < computerScore) {
-        console.log("Unfortunately, you did not win this time. Better luck next time!")
+        console.log("Unfortunately, you did not win this time. Better luck next time!");
+        console.log(`Final score: Humans - ${playerScore}, Robots - ${computerScore}`);
     } else {
-        console.log("Wot in tarnation! We have ourselves a tie!")
+        console.log("Wot in tarnation! We have ourselves a tie!");
+        console.log(`Final score: Humans - ${playerScore}, Robots - ${computerScore}`);
     }
 }
