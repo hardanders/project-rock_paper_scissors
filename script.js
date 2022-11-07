@@ -25,6 +25,7 @@ function getPlayerChoice() {
 }
 
 function playRound(player = getPlayerChoice(), comp = getComputerChoice()) {
+    console.log(player, comp);
     if (player === comp) {
         console.log("Looks like it's a tie!");
         ties++;
@@ -62,9 +63,21 @@ function determineRounds() {
     }
 }
 
+function determineScore() {
+    if (playerScore > compScore) {
+        alert(`You win! You beat the PC ${playerScore} times!`)
+    } else if (playerScore < compScore) {
+        alert(`Robots win today! ${compScore} times to your ${playerScore}!`)
+    } else if (playerScore == compScore) {
+        alert(`No victors today! Score: ${playerScore} to ${compScore}!`)
+    }
+}
+
 function game() { 
     let rounds = determineRounds();
     for (i = 0; i < rounds; i++) {
         playRound();
+        console.log(`Humans - ${playerScore} : Robots - ${compScore} : Ties ${ties}`);
     }
+    determineScore();
 }
