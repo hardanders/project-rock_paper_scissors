@@ -2,14 +2,12 @@ let compScore = 0;
 let playerScore = 0;
 let ties = 0;
 
-const rock = 0;
-const paper = 1;
-const scissors = 2;
-
+// Randomize the computer choice of R,P,S
 function getComputerChoice() {
     return compChoice = Math.floor(Math.random() * 3);
 }
 
+// Prompt the player to provide R,P,S
 function getPlayerChoice() {
     let playerChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
     if (playerChoice == "rock") {
@@ -24,6 +22,7 @@ function getPlayerChoice() {
     }
 }
 
+// Play a round, comparing the player and computer choices
 function playRound(player = getPlayerChoice(), comp = getComputerChoice()) {
     console.log(player, comp);
     if (player === comp) {
@@ -42,6 +41,7 @@ function playRound(player = getPlayerChoice(), comp = getComputerChoice()) {
     }
 }
 
+// Function to convert choice integer to R,P,S selection
 function convert(pick) {
     switch (Number(pick)) {
         case 0:
@@ -53,6 +53,7 @@ function convert(pick) {
     }
 }
 
+// Prompt for how many rounds to play
 function determineRounds() {
     let numberOfRounds = parseInt(prompt("How many rounds of Rock, Paper, Scissors should we play?"));
     if (!(numberOfRounds == Number(numberOfRounds))) {
@@ -63,6 +64,7 @@ function determineRounds() {
     }
 }
 
+// Compare the final scores for the winner
 function determineScore() {
     if (playerScore > compScore) {
         alert(`You win! You beat the PC ${playerScore} times!`)
@@ -73,6 +75,7 @@ function determineScore() {
     }
 }
 
+// Main game initialization
 function game() { 
     let rounds = determineRounds();
     for (i = 0; i < rounds; i++) {
