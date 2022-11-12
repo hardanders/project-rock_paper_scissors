@@ -4,9 +4,50 @@
         <meta charset="UTF-8">
         <title>Rock, Paper, Scissors</title>
         <script type="text/javascript" src="script.js"></script>
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
+        <div class="scores">
+            <div class="playerScore"></div>
+            <div class="ties"></div>
+            <div class="compScore"></div>
+        </div>
+        <h1>Would you like to play a game?</h1>
+        <div class="weapons">
+            <div class="card">
+                <div></div>
+                <button class="rock">Bludgeoning</button>
+            </div>
+            <div class="card">
+                <div></div>
+                <button class="paper">Suffocation</button>
+            </div>
+            <div class="card">
+                <div></div>
+                <button class="scissors">Dismembering</button>
+            </div>
+        </div>
+        <div class="selections">
+            <div class="player"></div>
+            <div class="computer"></div>
+        </div>
+        <div class="battleText"></div>
+        <button class="reset">RESET GAME</button>
+
         <script>
+            let psField = document.querySelector(".playerScore");
+            let tieField = document.querySelector(".ties");
+            let compField = document.querySelector(".compScore");
+            let playSelect = document.querySelector(".player");
+            let compSelect = document.querySelector(".computer");
+            const rock = document.querySelector(".rock");
+            const paper = document.querySelector(".paper");
+            const scissors = document.querySelector(".scissors");
+            const reset = document.querySelector(".reset");
+            const battleText = document.querySelector(".battleText");
+            initializeButtons();
+            resetScore();
+            
         </script>
     </body>
 </html>

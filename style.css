@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.weapons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
+}
+
+.selections {
+    align-self: center;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.player {
+    width: 50%;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.weapons,
+.selections {
+    margin-top: 25px;
+}
+
+.battleText,
+.reset {
+    margin-top: 25px;
+}

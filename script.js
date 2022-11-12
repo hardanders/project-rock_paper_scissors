@@ -2,6 +2,8 @@ let compScore = 0;
 let playerScore = 0;
 let ties = 0;
 
+
+
 // Randomize the computer choice of R,P,S
 function getComputerChoice() {
     return compChoice = Math.floor(Math.random() * 3);
@@ -9,7 +11,6 @@ function getComputerChoice() {
 
 // Prompt the player to provide R,P,S
 function getPlayerChoice() {
-    let playerChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
     if (playerChoice == "rock") {
         return 0;
     } else if (playerChoice == "paper") {
@@ -24,20 +25,21 @@ function getPlayerChoice() {
 
 // Play a round, comparing the player and computer choices
 function playRound(player = getPlayerChoice(), comp = getComputerChoice()) {
-    console.log(player, comp);
+    console.log(convert(player), convert(comp));
+    playSelect.textContent = `Player Selection: ${convert(player)}`;
+    compSelect.textContent = `Computer Selection: ${convert(comp)}`;
     if (player === comp) {
-        console.log("Looks like it's a tie!");
-        ties++;
+        ++ties;
+        tieField.textContent = `Ties: ${ties}`;
+        battleText.textContent = `Two ${convert(player)}s makes a tie!`
     } else if (player == 0 && comp == 2 || player == 1 && comp == 0 || player == 2 && comp == 1) {
-        player = convert(player);
-        comp = convert(comp);
-        console.log(`Player wins! Your ${player} beat the PCs ${comp}!`);
-        playerScore++;
+        ++playerScore;
+        psField.textContent = `Player Score: ${playerScore}`;
+        battleText.textContent = `Your ${convert(player)} has beaten the PCs ${convert(comp)}. Congratulations!`;
     } else {
-        player = convert(player);
-        comp = convert(comp);
-        console.log(`Computer wins! Its ${comp} beat your ${player}`);
-        compScore++;
+        ++compScore;
+        compField.textContent = `Computer Score: ${compScore}`;
+        battleText.textContent = `The PCs ${convert(comp)} has beaten your ${convert(player)}`;
     }
 }
 
@@ -45,11 +47,11 @@ function playRound(player = getPlayerChoice(), comp = getComputerChoice()) {
 function convert(pick) {
     switch (Number(pick)) {
         case 0:
-            return "rock";
+            return "ROCK";
         case 1:
-            return "paper";
+            return "PAPER";
         case 2:
-            return "scissors";
+            return "SCISSORS";
     }
 }
 
@@ -83,4 +85,31 @@ function game() {
         console.log(`Humans - ${playerScore} : Robots - ${compScore} : Ties ${ties}`);
     }
     determineScore();
+}
+
+function initializeButtons() {
+    rock.addEventListener("click", () => {
+        playRound(0);
+    })
+
+    paper.addEventListener("click", () => {
+        playRound(1);
+    })
+
+    scissors.addEventListener("click", () => {
+        playRound(2);
+    })
+
+    reset.addEventListener("click", () => {
+        resetScore();
+    })
+}
+
+function resetScore() {
+    psField.textContent = `Player Score: 0`;
+    tieField.textContent = `Ties: 0`;
+    compField.textContent = `Computer Score: 0`;
+    playSelect.textContent = '';
+    compSelect.textContent = '';
+    battleText.textContent = '';
 }
