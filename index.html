@@ -7,34 +7,35 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <div class="scores">
-            <div class="playerScore">Player Score: </div>
-            <div class="ties">Ties: </div>
-            <div class="compScore"> Computer Score: </div>
-        </div>
-        <h1>Would you like to play a game?</h1>
-        <h3>First to 5 wins! </h3>
-        <div class="weapons">
-            <div class="card">
-                <div></div>
-                <button class="rock">Bludgeoning</button>
+        <div class="container">
+            <div class="scores">
+                <div class="playerScore">Player Score: </div>
+                <div class="ties">Ties: </div>
+                <div class="compScore"> Computer Score: </div>
             </div>
-            <div class="card">
-                <div></div>
-                <button class="paper">Suffocation</button>
+            <h1>Would you like to play a game?</h1>
+            <h3>First to 5 wins! </h3>
+            <div class="weapons">
+                <div class="card">
+                    <div class="card-img one"></div>
+                    <button class="rock">Bludgeoning</button>
+                </div>
+                <div class="card">
+                    <div class="card-img two"></div>
+                    <button class="paper">Strangling</button>
+                </div>
+                <div class="card">
+                    <div class="card-img three"></div>
+                    <button class="scissors">Dismembering</button>
+                </div>
             </div>
-            <div class="card">
-                <div></div>
-                <button class="scissors">Dismembering</button>
+            <div class="selections">
+                <div class="player"></div>
+                <div class="computer"></div>
             </div>
+            <div class="battleText"></div>
+            <button class="reset">RESET GAME</button>
         </div>
-        <div class="selections">
-            <div class="player"></div>
-            <div class="computer"></div>
-        </div>
-        <div class="battleText"></div>
-        <button class="reset">RESET GAME</button>
-
         <script>
             const psField = document.querySelector(".playerScore");
             const tieField = document.querySelector(".ties");
