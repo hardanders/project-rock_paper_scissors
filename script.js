@@ -1,6 +1,33 @@
 let compScore = 0;
 let playerScore = 0;
 let ties = 0;
+const psField = document.querySelector(".playerScore");
+const tieField = document.querySelector(".ties");
+const compField = document.querySelector(".compScore");
+const playSelect = document.querySelector(".player");
+const compSelect = document.querySelector(".computer");
+const weapBtns = document.querySelectorAll("div.card > button");
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+const reset = document.querySelector(".reset");
+const battleText = document.querySelector(".battleText");
+
+rock.addEventListener("click", () => {
+    playRound(0);
+})
+
+paper.addEventListener("click", () => {
+    playRound(1);
+})
+
+scissors.addEventListener("click", () => {
+    playRound(2);
+})
+
+reset.addEventListener("click", () => {
+    resetScore();
+})
 
 // Randomize the computer choice of R,P,S
 function getComputerChoice() {
@@ -51,24 +78,6 @@ function convert(pick) {
         case 2:
             return "SCISSORS";
     }
-}
-
-function initializeButtons() {
-    rock.addEventListener("click", () => {
-        playRound(0);
-    })
-
-    paper.addEventListener("click", () => {
-        playRound(1);
-    })
-
-    scissors.addEventListener("click", () => {
-        playRound(2);
-    })
-
-    reset.addEventListener("click", () => {
-        resetScore();
-    })
 }
 
 function resetScore() {

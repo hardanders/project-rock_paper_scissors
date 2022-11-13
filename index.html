@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock, Paper, Scissors</title>
-        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="script.js" defer></script>
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
@@ -37,19 +37,6 @@
             <button class="reset">RESET GAME</button>
         </div>
         <script>
-            const psField = document.querySelector(".playerScore");
-            const tieField = document.querySelector(".ties");
-            const compField = document.querySelector(".compScore");
-            const playSelect = document.querySelector(".player");
-            const compSelect = document.querySelector(".computer");
-            const weapBtns = document.querySelectorAll("div.card > button");
-            const rock = document.querySelector(".rock");
-            const paper = document.querySelector(".paper");
-            const scissors = document.querySelector(".scissors");
-            const reset = document.querySelector(".reset");
-            const battleText = document.querySelector(".battleText");
-            initializeButtons();
-            resetScore();
         </script>
     </body>
 </html>
