@@ -8,11 +8,12 @@
     </head>
     <body>
         <div class="scores">
-            <div class="playerScore"></div>
-            <div class="ties"></div>
-            <div class="compScore"></div>
+            <div class="playerScore">Player Score: </div>
+            <div class="ties">Ties: </div>
+            <div class="compScore"> Computer Score: </div>
         </div>
         <h1>Would you like to play a game?</h1>
+        <h3>First to 5 wins! </h3>
         <div class="weapons">
             <div class="card">
                 <div></div>
@@ -35,11 +36,12 @@
         <button class="reset">RESET GAME</button>
 
         <script>
-            let psField = document.querySelector(".playerScore");
-            let tieField = document.querySelector(".ties");
-            let compField = document.querySelector(".compScore");
-            let playSelect = document.querySelector(".player");
-            let compSelect = document.querySelector(".computer");
+            const psField = document.querySelector(".playerScore");
+            const tieField = document.querySelector(".ties");
+            const compField = document.querySelector(".compScore");
+            const playSelect = document.querySelector(".player");
+            const compSelect = document.querySelector(".computer");
+            const weapBtns = document.querySelectorAll("div.card > button");
             const rock = document.querySelector(".rock");
             const paper = document.querySelector(".paper");
             const scissors = document.querySelector(".scissors");
@@ -47,7 +49,6 @@
             const battleText = document.querySelector(".battleText");
             initializeButtons();
             resetScore();
-            
         </script>
     </body>
 </html>
